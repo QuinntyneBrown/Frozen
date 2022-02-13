@@ -1,0 +1,403 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Frozen",
+    "description": "",
+    "termsOfService": "https://example.com/terms",
+    "contact": {
+      "name": "",
+      "email": ""
+    },
+    "license": {
+      "name": "Use under MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    },
+    "version": "v1"
+  },
+  "paths": {
+    "/api/Character/{characterId}": {
+      "get": {
+        "tags": [
+          "Character"
+        ],
+        "summary": "Get Character by id.",
+        "description": "Get Character by id.",
+        "operationId": "getCharacterById",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "characterId",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "Server Error"
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetCharacterByIdResponse"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Character"
+        ],
+        "summary": "Delete Character.",
+        "description": "Delete Character.",
+        "operationId": "removeCharacter",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "characterId",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Server Error"
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/RemoveCharacterResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api/Character": {
+      "get": {
+        "tags": [
+          "Character"
+        ],
+        "summary": "Get Characters.",
+        "description": "Get Characters.",
+        "operationId": "getCharacters",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "500": {
+            "description": "Server Error"
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetCharactersResponse"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Character"
+        ],
+        "summary": "Create Character.",
+        "description": "Create Character.",
+        "operationId": "createCharacter",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CreateCharacterRequest"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Server Error"
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CreateCharacterResponse"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Character"
+        ],
+        "summary": "Update Character.",
+        "description": "Update Character.",
+        "operationId": "updateCharacter",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/UpdateCharacterRequest"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Server Error"
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/UpdateCharacterResponse"
+            }
+          }
+        }
+      }
+    },
+    "/api/Character/page/{pageSize}/{index}": {
+      "get": {
+        "tags": [
+          "Character"
+        ],
+        "summary": "Get Character Page.",
+        "description": "Get Character Page.",
+        "operationId": "getCharactersPage",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pageSize",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "path",
+            "name": "index",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Server Error"
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/ProblemDetails"
+            }
+          },
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GetCharactersPageResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "CharacterDto": {
+      "type": "object",
+      "properties": {
+        "characterId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "CreateCharacterRequest": {
+      "type": "object",
+      "properties": {
+        "character": {
+          "$ref": "#/definitions/CharacterDto"
+        }
+      }
+    },
+    "CreateCharacterResponse": {
+      "type": "object",
+      "properties": {
+        "character": {
+          "$ref": "#/definitions/CharacterDto"
+        },
+        "validationErrors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "GetCharacterByIdResponse": {
+      "type": "object",
+      "properties": {
+        "character": {
+          "$ref": "#/definitions/CharacterDto"
+        },
+        "validationErrors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "GetCharactersPageResponse": {
+      "type": "object",
+      "properties": {
+        "length": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "entities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CharacterDto"
+          }
+        },
+        "validationErrors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "GetCharactersResponse": {
+      "type": "object",
+      "properties": {
+        "characters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CharacterDto"
+          }
+        },
+        "validationErrors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ProblemDetails": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "status": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "detail": {
+          "type": "string"
+        },
+        "instance": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": { }
+    },
+    "RemoveCharacterResponse": {
+      "type": "object",
+      "properties": {
+        "character": {
+          "$ref": "#/definitions/CharacterDto"
+        },
+        "validationErrors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "UpdateCharacterRequest": {
+      "type": "object",
+      "properties": {
+        "character": {
+          "$ref": "#/definitions/CharacterDto"
+        }
+      }
+    },
+    "UpdateCharacterResponse": {
+      "type": "object",
+      "properties": {
+        "character": {
+          "$ref": "#/definitions/CharacterDto"
+        },
+        "validationErrors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

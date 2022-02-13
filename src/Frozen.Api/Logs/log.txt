@@ -1,0 +1,13 @@
+2022-02-13 10:39:08.602 -05:00 [INF] Now listening on: https://localhost:5001
+2022-02-13 10:39:08.608 -05:00 [INF] Now listening on: http://localhost:5000
+2022-02-13 10:39:08.611 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-02-13 10:39:08.612 -05:00 [INF] Hosting environment: Development
+2022-02-13 10:39:08.613 -05:00 [INF] Content root path: C:\projects\Frozen\src\Frozen.Api
+2022-02-13 10:39:09.623 -05:00 [INF] Request starting HTTP/2 GET https://localhost:5001/index.html - -
+2022-02-13 10:39:09.977 -05:00 [INF] HTTP GET /index.html ({UserId}) responded 200 in 308.9736ms
+2022-02-13 10:39:09.982 -05:00 [INF] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-02-13 10:39:09.993 -05:00 [INF] Request finished HTTP/2 GET https://localhost:5001/index.html - - - 200 - text/html;charset=utf-8 371.9738ms
+2022-02-13 10:39:09.993 -05:00 [INF] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11944 application/javascript;+charset=utf-8 10.1922ms
+2022-02-13 10:39:10.125 -05:00 [INF] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+2022-02-13 10:39:10.320 -05:00 [INF] HTTP GET /swagger/v1/swagger.json ({UserId}) responded 200 in 193.5953ms
+2022-02-13 10:39:10.322 -05:00 [INF] Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 197.0264ms
