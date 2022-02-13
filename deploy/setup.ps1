@@ -7,12 +7,12 @@ Write-Host 'Creating resource group' -ForegroundColor Green
 az group create -l westus -n $resourceBaseName
 
 Write-Host 'Creating Azure resources' -ForegroundColor Green
-az deployment group create --resource-group $resourceBaseName --template-file deploy.bicep
+az deployment group create --resource-group $resourceBaseName --template-file main.bicep
 
 Write-Host 'Building API project' -ForegroundColor Green
 dotnet build ..\src\Frozen.Api\Frozen.Api.csproj
 
-Write-Host 'Packaging .NET 6 minimal API project for deployment' -ForegroundColor Green
+Write-Host 'Packaging API project for deployment' -ForegroundColor Green
 dotnet publish ..\src\Frozen.Api\Frozen.Api.csproj --self-contained -r win-x86 -o ..\publish
 
 try {

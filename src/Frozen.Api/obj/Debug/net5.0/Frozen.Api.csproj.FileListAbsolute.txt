@@ -56,3 +56,4 @@ C:\projects\Frozen\src\Frozen.Api\obj\Debug\net5.0\ref\Frozen.Api.dll
 C:\projects\Frozen\src\Frozen.Api\obj\Debug\net5.0\Frozen.Api.xml
 C:\projects\Frozen\src\Frozen.Api\obj\Debug\net5.0\Frozen.Api.pdb
 C:\projects\Frozen\src\Frozen.Api\obj\Debug\net5.0\Frozen.Api.genruntimeconfig.cache
+C:\projects\Frozen\src\Frozen.Api\bin\Debug\net5.0\swagger.json
